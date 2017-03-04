@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TruckingModelStoreContainer" CdmEntityContainer="TruckingEntities">
+    <EntitySetMapping Name="Truckings">
+      <EntityTypeMapping TypeName="TruckingModel.Trucking">
+        <MappingFragment StoreEntitySet="Trucking">
+          <ScalarProperty Name="TruckStatus" ColumnName="TruckStatus" />
+          <ScalarProperty Name="LoadMinutes" ColumnName="LoadMinutes" />
+          <ScalarProperty Name="TruckDate" ColumnName="TruckDate" />
+          <ScalarProperty Name="TruckID" ColumnName="TruckID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TruckingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TruckingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Truckings" EntityType="TruckingModel.Trucking" />
+  </EntityContainer>
+  <EntityType Name="Trucking">
+    <Key>
+      <PropertyRef Name="TruckID" />
+    </Key>
+    <Property Name="TruckID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TruckDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LoadMinutes" Type="Int16" Nullable="false" />
+    <Property Name="TruckStatus" Type="TruckingModel.TruckStatus" Nullable="false" />
+  </EntityType>
+  <EnumType Name="TruckStatus" UnderlyingType="Byte" a:ExternalTypeName="TruckingModel.TruckStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+</Schema>

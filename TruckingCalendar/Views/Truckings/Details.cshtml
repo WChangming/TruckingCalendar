@@ -1,0 +1,42 @@
+﻿@model TruckingCalendar.Models.Trucking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Trucking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TruckDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TruckDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadMinutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoadMinutes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TruckStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TruckStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TruckID }) |
+    @Html.ActionLink("Back to Calendar", "Calendar", new { truckdate = Model.TruckDate })
+</p>

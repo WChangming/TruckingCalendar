@@ -1,0 +1,78 @@
+﻿@model IEnumerable<TruckingCalendar.Models.Trucking>
+
+@{
+    ViewBag.Title = "Trucking Calendar";
+}
+@section scripts {
+    <link rel='stylesheet' href='~/Content/fullcalendar.css' />
+    <script src='~/Scripts/moment.js'></script>
+    <script src='~/Scripts/fullcalendar.js'></script>
+    <script>
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            header: {
+                right: 'prev,next today',
+                center: 'title',
+                left: 'month,agendaWeek,agendaDay'
+            },
+            theme: true,
+            timezone: 'local',
+            editable: true,
+            defaultDate: '@ViewBag.TruckDate',
+            allDaySlot: false,
+            selectable: true,
+            slotMinutes: 15,
+            events: '@Url.Action("GetEvents")',
+
+            eventClick: function(calEvent) {
+                window.location='/Truckings/Details/' + calEvent.id;
+            },
+
+            dayClick: function (date, jsEvent, view) {
+                if(view.name != 'month') {
+                    if (date > moment()) {
+                        if (confirm("Add a new trucking?")) {
+                            window.location = '@Url.Action("Create")' + '?truckDate=' + date.format();
+                        }
+                    }
+                }
+                else {
+                    $('#calendar').fullCalendar('changeView', 'agendaDay');
+                    $('#calendar').fullCalendar('gotoDate', date);
+                }
+            },
+
+            eventDrop: function(event, delta, revertFunc) {
+                if (confirm("Confirm move?")) {
+                    UpdateEvent(event.id, event.start, event.end);
+                }
+                else {
+                    revertFunc();
+                }
+            },
+
+            eventResize: function (event, delta, revertFunc) {
+                if (confirm("Confirm change loading time?")) {
+                    UpdateEvent(event.id, event.start, event.end);
+                }
+                else {
+                    revertFunc();
+                }
+            }
+        });
+    });
+
+    function UpdateEvent(id, start, end) {
+        var obj = { id: id, start: start, end: end }
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UpdateEvent")',
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(obj)
+        });
+    }
+    </script>
+}
+<div id='calendar'></div>
