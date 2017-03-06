@@ -13,9 +13,9 @@ namespace TruckingCalendar.Controllers
         private TruckingEntities db = new TruckingEntities();
 
         // GET: Calendar
-        public ActionResult Calendar(DateTime? truckdate)
+        public ActionResult Calendar(DateTime? truckDate)
         {
-            ViewBag.TruckDate = truckdate ?? DateTime.Today;
+            ViewBag.TruckDate = truckDate ?? DateTime.Today;
             return View();
         }
 
@@ -52,7 +52,7 @@ namespace TruckingCalendar.Controllers
             {
                 db.Truckings.Add(trucking);
                 db.SaveChanges();
-                return RedirectToAction("Calendar", new { truckdate = trucking.TruckDate });
+                return RedirectToAction("Calendar", new { truckDate = trucking.TruckDate });
             }
 
             return View(trucking);
@@ -84,7 +84,7 @@ namespace TruckingCalendar.Controllers
             {
                 db.Entry(trucking).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Calendar", new { truckdate = trucking.TruckDate });
+                return RedirectToAction("Calendar", new { truckDate = trucking.TruckDate });
             }
             return View(trucking);
         }
@@ -112,7 +112,7 @@ namespace TruckingCalendar.Controllers
             Trucking trucking = db.Truckings.Find(id);
             db.Truckings.Remove(trucking);
             db.SaveChanges();
-            return RedirectToAction("Calendar", new { truckdate = trucking.TruckDate });
+            return RedirectToAction("Calendar", new { truckDate = trucking.TruckDate });
         }
 
         protected override void Dispose(bool disposing)

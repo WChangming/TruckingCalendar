@@ -80,3 +80,4 @@ c:\Users\Wang Changming\Documents\Visual Studio 2015\Projects\TruckingCalendar\T
 c:\Users\Wang Changming\Documents\Visual Studio 2015\Projects\TruckingCalendar\TruckingCalendar\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 c:\Users\Wang Changming\Documents\Visual Studio 2015\Projects\TruckingCalendar\TruckingCalendar\obj\Debug\TruckingCalendar.dll
 c:\Users\Wang Changming\Documents\Visual Studio 2015\Projects\TruckingCalendar\TruckingCalendar\obj\Debug\TruckingCalendar.pdb
+C:\Users\Wang Changming\documents\visual studio 2015\Projects\TruckingCalendar\TruckingCalendar\obj\Debug\TruckingCalendar.csprojResolveAssemblyReference.cache
